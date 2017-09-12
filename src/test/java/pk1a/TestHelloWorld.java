@@ -9,8 +9,7 @@ package test.java.pk1a;
 //tester1
 //tester1//tester1
 //tester1//tester1
-//tester1//tester1
-//tester1
+
 
 import main.java.pk1.HelloWorld;
 import junit.framework.*;
