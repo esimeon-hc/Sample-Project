@@ -20,7 +20,7 @@ changeBuildType(RelativeId("Build")) {
     steps {
         insert(0) {
             script {
-                name = "1. Prepare environment"
+                name = "Prepare environment"
                 scriptContent = "<do something>"
             }
         }
