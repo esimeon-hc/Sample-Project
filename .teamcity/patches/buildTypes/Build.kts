@@ -2,7 +2,7 @@ package patches.buildTypes
 
 import jetbrains.buildServer.configs.kotlin.v2018_1.*
 import jetbrains.buildServer.configs.kotlin.v2018_1.buildSteps.maven
-import jetbrains.buildServer.configs.kotlin.v2018_1.buildSteps.script
+import jetbrains.buildServer.configs.kotlin.v2018_1.triggers.vcs
 import jetbrains.buildServer.configs.kotlin.v2018_1.ui.*
 
 /*
@@ -11,6 +11,13 @@ To apply the patch, change the buildType with id = 'Build'
 accordingly, and delete the patch script.
 */
 changeBuildType(RelativeId("Build")) {
+    expectTemplates()
+    templates = arrayListOf(RelativeId("Template1"))
+
+    vcs {
+        remove(DslContext.settingsRoot.id!!)
+    }
+
     expectSteps {
         maven {
             goals = "clean test"
@@ -18,18 +25,14 @@ changeBuildType(RelativeId("Build")) {
         }
     }
     steps {
-        insert(0) {
-            script {
-                name = "Prepare environment"
-                scriptContent = "<do something>"
+        items.removeAt(0)
+    }
+
+    triggers {
+        remove {
+            vcs {
+                id = "TRIGGER_1"
             }
         }
-        insert(1) {
-            script {
-                name = "Perform cleanup"
-                scriptContent = "<do something>"
-            }
-        }
-        items.removeAt(2)
     }
 }
