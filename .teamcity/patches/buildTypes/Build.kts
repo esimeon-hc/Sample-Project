@@ -2,6 +2,7 @@ package patches.buildTypes
 
 import jetbrains.buildServer.configs.kotlin.v2018_1.*
 import jetbrains.buildServer.configs.kotlin.v2018_1.buildSteps.maven
+import jetbrains.buildServer.configs.kotlin.v2018_1.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.v2018_1.ui.*
 
 /*
@@ -17,6 +18,12 @@ changeBuildType(RelativeId("Build")) {
         }
     }
     steps {
-        items.removeAt(0)
+        insert(0) {
+            script {
+                name = "1. Prepare environment"
+                scriptContent = "<do something>"
+            }
+        }
+        items.removeAt(1)
     }
 }
