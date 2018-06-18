@@ -17,7 +17,7 @@ changeProject(DslContext.projectId) {
                 id = "PROJECT_EXT_4"
                 param("clientId", "9e046f77aacc4115726a")
                 param("defaultTokenScope", "public_repo,repo,repo:status,write:repo_hook")
-                param("secure:clientSecret", "credentialsJSON:a86d6830-5b13-449f-89a7-4a958552c76f")
+                param("secure:clientSecret", "credentialsJSON:b8e49070-2fe9-4726-b98e-e8de74617af8")
                 param("displayName", "GitHub.com")
                 param("gitHubUrl", "https://github.com/")
                 param("providerType", "GitHub")
