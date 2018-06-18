@@ -24,6 +24,12 @@ changeBuildType(RelativeId("Build")) {
                 scriptContent = "<do something>"
             }
         }
-        items.removeAt(1)
+        insert(1) {
+            script {
+                name = "Perform cleanup"
+                scriptContent = "<do something>"
+            }
+        }
+        items.removeAt(2)
     }
 }
