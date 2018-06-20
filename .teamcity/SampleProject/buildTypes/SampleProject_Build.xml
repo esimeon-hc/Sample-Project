@@ -38,6 +38,9 @@
           <param name="swabra.enabled" value="swabra.before.build" />
         </parameters>
       </extension>
+      <extension id="DockerSupport" type="DockerSupport">
+        <parameters />
+      </extension>
     </build-extensions>
     <cleanup />
   </settings>
