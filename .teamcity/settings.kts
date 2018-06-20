@@ -1,4 +1,5 @@
 import jetbrains.buildServer.configs.kotlin.v2018_1.*
+import jetbrains.buildServer.configs.kotlin.v2018_1.buildFeatures.dockerSupport
 import jetbrains.buildServer.configs.kotlin.v2018_1.buildFeatures.swabra
 import jetbrains.buildServer.configs.kotlin.v2018_1.buildSteps.dotnetBuild
 import jetbrains.buildServer.configs.kotlin.v2018_1.buildSteps.maven
@@ -46,9 +47,15 @@ project {
         preventDependencyCleanup = false
     }
 
+    subProject(EmptyProject)
     subProject(SampleProject)
     subProject(SampleProject2)
 }
+
+
+object EmptyProject : Project({
+    name = "Empty project"
+})
 
 
 object SampleProject : Project({
@@ -80,6 +87,8 @@ object SampleProject_Build : BuildType({
 
     features {
         swabra {
+        }
+        dockerSupport {
         }
     }
 })
