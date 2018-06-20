@@ -1,4 +1,5 @@
 import jetbrains.buildServer.configs.kotlin.v2018_1.*
+import jetbrains.buildServer.configs.kotlin.v2018_1.buildFeatures.Swabra
 import jetbrains.buildServer.configs.kotlin.v2018_1.buildFeatures.dockerSupport
 import jetbrains.buildServer.configs.kotlin.v2018_1.buildFeatures.swabra
 import jetbrains.buildServer.configs.kotlin.v2018_1.buildSteps.dotnetBuild
@@ -152,6 +153,12 @@ object SampleProject2_Build2 : BuildType({
 
     triggers {
         vcs {
+        }
+    }
+
+    features {
+        swabra {
+            filesCleanup = Swabra.FilesCleanup.DISABLED
         }
     }
 })
